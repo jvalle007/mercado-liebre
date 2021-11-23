@@ -4,6 +4,10 @@ const port = 3000
 const path = require("path")
 app.use(express.static("public"));
 
+app.listen(process.env.PORT || 4000, ()=>{
+  console.log('Servidor funcionando');
+})
+
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname + "/views/home.html"))
 })
@@ -20,7 +24,4 @@ app.post('/', (req, res) => {
   res.sendFile(path.join(__dirname + "/views/home.html"))
 })
 
-app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`)
-})
 
